@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import Task from './Task';
 
 const AllTask = () => {
 	const [user, loading, error] = useAuthState(auth);
@@ -25,11 +26,29 @@ const AllTask = () => {
 	console.log(reverseTask);
 	return (
 		<div className='mt-20'>
-			<h2 className='text-2xl text-center font-semibold text-primary'>All my Tasks</h2>
-			<div>
-				{
-					reverseTask.map(task => <p key={task._id}>{task.taskName}</p>)
-				}
+			<h2 className='text-2xl text-center font-semibold text-primary mb-5'>All my Tasks</h2>
+			<div className='overflow-x-auto mb-10'>
+			<table class="table w-full ">
+					<thead>
+					<tr>
+						<th></th>
+						<th>Task Name</th>
+						<th>Show Details</th>
+						<th>Complete Task</th>
+						<th>Delete Task</th>
+					</tr>
+					</thead>
+					<tbody>
+						{
+							reverseTask.map((task, index) => <Task 
+							key={task._id}
+							task={task}
+							index={index}
+							></Task>)
+						}
+					</tbody>
+				</table>
+				
 			</div>
 		</div>
 	);
