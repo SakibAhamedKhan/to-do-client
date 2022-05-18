@@ -29,7 +29,7 @@ const AllTask = ({refresh2}) => {
 		<div className='mt-20'>
 			<h2 className='text-2xl text-center font-semibold text-primary mb-5'>All my Tasks</h2>
 			<div className='overflow-x-auto mb-10'>
-			<table class="table w-full ">
+			<table className="table w-full ">
 					<thead>
 					<tr>
 						<th></th>

@@ -22,15 +22,15 @@ const Login = () => {
 	}
 	return (
 		<div className='flex justify-center items-center h-screen'>
-			<div class="card w-96 bg-slate-100 shadow-xl">
-				<div class="card-body items-center text-center">
+			<div className="card w-96 bg-slate-100 shadow-xl">
+				<div className="card-body items-center text-center">
 					<h2 className='text-2xl text-secondary font-semibold'>To-Do App</h2>
-					<h2 class="card-title text-2xl mb-5">Sign In</h2>
+					<h2 className="card-title text-2xl mb-5">Sign In</h2>
 					{
 						errorElement
 					}
-					<div class="card-actions">
-						<button onClick={ () => signInWithGoogle()} class="btn btn-outline">Continue With Google</button>
+					<div className="card-actions">
+						<button onClick={ () => signInWithGoogle()} className="btn btn-outline">Continue With Google</button>
 					</div>
 				</div>
 			</div>
