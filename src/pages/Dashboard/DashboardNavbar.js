@@ -7,8 +7,8 @@ import auth from '../../firebase.init';
 const DashboardNavbar = () => {
 	const [user, loading, error] = useAuthState(auth);
 	const menuItem = <>
-				<li><Link to='/profile' className='text-xl font-semibold'>{user.displayName}</Link></li>
-				<li><button  onClick={() => signOut(auth)} className='text-xl font-semibold'>Logout</button></li>
+				<li className='lg:shadow-md rounded-lg mr-2'><Link to='/profile' className='text-xl font-semibold'>{user.displayName}</Link></li>
+				<li className='lg:shadow-md rounded-lg mr-2'><button  onClick={() => signOut(auth)} className='text-xl font-semibold'>Logout</button></li>
 	</>
 	return (
 		<div class="navbar bg-base-100">
@@ -23,7 +23,7 @@ const DashboardNavbar = () => {
 				}
 			</ul>
 			</div>
-			<Link to='/dashboard' class="btn btn-ghost normal-case text-xl hidden lg:flex">To Do App</Link>
+			<Link to='/dashboard' class="btn btn-ghost normal-case text-xl hidden lg:flex shadow-md rounded-lg mr-2">To Do App</Link>
 		</div>
 		<div class="navbar-end hidden lg:flex">
 			<ul class="menu menu-horizontal p-0">
@@ -33,7 +33,7 @@ const DashboardNavbar = () => {
 			</ul>
 		</div>
 		<div className='navbar-end lg:hidden'>
-		<Link to='/dashboard' class="btn btn-ghost normal-case text-xl lg:hidden">To Do App</Link>
+		<Link to='/dashboard' class="btn btn-ghost normal-case text-xl lg:hidden shadow-md rounded-lg mr-2">To Do App</Link>
 		</div>
 		</div>
 	);
