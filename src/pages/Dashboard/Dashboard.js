@@ -1,17 +1,44 @@
 import { async } from '@firebase/util';
 import React, { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
+import AllTask from './AllTask';
 import DashboardNavbar from './DashboardNavbar';
 
 const Dashboard = () => {
 	const [open, setOpen] = useState(false);
+	const [user, loading, error] = useAuthState(auth);
 
 	const handleSubmit = async(event) => {
 		event.preventDefault();
 		const taskName= event.target.taskName.value;
 		const taskDetails= event.target.taskDetails.value;
 		console.log(taskName, taskDetails);
-		event.target.reset();
-		setOpen(false)
+
+		const doc = {
+			email: user?.email,
+			taskName,
+			taskDetails,
+			complete: false
+		}
+		fetch('http://localhost:5000/addTask', {
+			method: 'POST',
+			headers:{
+				'content-type':'application/json'
+			},
+			body: JSON.stringify(doc)
+		})
+		.then(res => res.json())
+		.then(data => {
+			console.log(data);
+			if(data){
+				event.target.reset();
+				setOpen(false);
+				toast.success('Successfully Task Added');
+			}
+		})
+		
 		
 	}
 	return (
@@ -49,12 +76,12 @@ const Dashboard = () => {
 					</form>
 				</div>
 
-
+				
 				
 			</div>
 			</div>
 
-
+			<AllTask></AllTask>
 		</div>
 	);
 };
