@@ -4,9 +4,10 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import Task from './Task';
 
-const AllTask = () => {
+const AllTask = ({refresh2}) => {
 	const [user, loading, error] = useAuthState(auth);
 	const [task, setTask] = useState([]);
+	const [refresh, setRefresh] = useState('');
 
 	let tasks;
 	let reverseTask;
@@ -15,7 +16,7 @@ const AllTask = () => {
 		fetch(`http://localhost:5000/task/${user?.email}`)
 		.then(res => res.json())
 		.then(data => setTask(data));
-	},[]);
+	},[refresh, refresh2]);
 
 	tasks = [...task];
 	reverseTask = tasks.reverse();
@@ -44,6 +45,7 @@ const AllTask = () => {
 							key={task._id}
 							task={task}
 							index={index}
+							setRefresh={setRefresh}
 							></Task>)
 						}
 					</tbody>

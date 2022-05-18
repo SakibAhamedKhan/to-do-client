@@ -9,6 +9,7 @@ import DashboardNavbar from './DashboardNavbar';
 const Dashboard = () => {
 	const [open, setOpen] = useState(false);
 	const [user, loading, error] = useAuthState(auth);
+	const [refresh2, setRefresh2] = useState('');
 
 	const handleSubmit = async(event) => {
 		event.preventDefault();
@@ -36,6 +37,7 @@ const Dashboard = () => {
 				event.target.reset();
 				setOpen(false);
 				toast.success('Successfully Task Added');
+				setRefresh2(new Date().getTime());
 			}
 		})
 		
@@ -81,7 +83,7 @@ const Dashboard = () => {
 			</div>
 			</div>
 
-			<AllTask></AllTask>
+			<AllTask refresh2={refresh2}></AllTask>
 		</div>
 	);
 };
