@@ -11,7 +11,7 @@ import Profile from './pages/Dashboard/Profile';
 
 function App() {
   return (
-    <div className='max-w-6xl mx-auto'>
+    <div className='mx-auto'>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
