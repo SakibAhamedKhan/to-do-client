@@ -10,7 +10,7 @@ const Profile = () => {
 		<div>
 			<DashboardNavbar></DashboardNavbar>
 			<div className='flex justify-center items-center mt-20'>
-			<div className="card w-96 bg-slate-100 shadow-xl">
+			<div className="card w-96 bg-white shadow-2xl">
 				<div className="card-body items-center text-center">
 					<h2 className='text-2xl text-secondary font-semibold'>Profile</h2>
 					<div className="avatar my-5">

@@ -13,7 +13,7 @@ const AllTask = ({refresh2}) => {
 	let reverseTask;
 
 	useEffect( () => {
-		fetch(`http://localhost:5000/task/${user?.email}`)
+		fetch(`https://gentle-wave-45593.herokuapp.com/task/${user?.email}`)
 		.then(res => res.json())
 		.then(data => setTask(data));
 	},[refresh, refresh2]);
@@ -28,8 +28,8 @@ const AllTask = ({refresh2}) => {
 	return (
 		<div className='mt-20'>
 			<h2 className='text-2xl text-center font-semibold text-primary mb-5'>All my Tasks</h2>
-			<div className='overflow-x-auto mb-10'>
-			<table className="table w-full ">
+			<div className='overflow-x-auto mb-10 mx-4'>
+			<table className="table w-full">
 					<thead>
 					<tr>
 						<th></th>

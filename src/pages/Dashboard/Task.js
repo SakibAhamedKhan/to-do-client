@@ -10,7 +10,7 @@ const Task = ({task , index, setRefresh}) => {
 
 
 	const handleComplete = () => {
-		fetch(`http://localhost:5000/task/${user?.email}`,{
+		fetch(`https://gentle-wave-45593.herokuapp.com/task/${user?.email}`,{
 			method:'PUT',
 			headers:{
 				'content-type':'application/json'
@@ -27,7 +27,7 @@ const Task = ({task , index, setRefresh}) => {
 		})
 	}
 	const handleDelete = () => {
-		fetch(`http://localhost:5000/task/${user?.email}`,{
+		fetch(`https://gentle-wave-45593.herokuapp.com/task/${user?.email}`,{
 			method:'DELETE',
 			headers:{
 				'content-type':'application/json'

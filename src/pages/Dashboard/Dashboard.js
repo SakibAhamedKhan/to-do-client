@@ -25,7 +25,7 @@ const Dashboard = () => {
 			taskDetails,
 			complete: false
 		}
-		fetch('http://localhost:5000/addTask', {
+		fetch('https://gentle-wave-45593.herokuapp.com/addTask', {
 			method: 'POST',
 			headers:{
 				'content-type':'application/json'
